@@ -1,4 +1,6 @@
-# portfolio-matematica-discreta-2026-2
+==============================================
+PORTFÓLIO DE PROGRAMAÇÃO MATEMÁTICA
+==============================================
 
 Aluno: Pedro Henrique Vieira dos Santos
 Matrícula: 2622130002
