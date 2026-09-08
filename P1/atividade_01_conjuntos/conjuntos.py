@@ -2,15 +2,22 @@ A = set(input("Digite os elementos do conjunto A: ").split())
 B = set(input("Digite os elementos do conjunto B: ").split())
 
 uniao = A | B
-print(uniao)
+print("A ∪ B =", uniao)
 
-interseccao = A & B
-print(interseccao)
+intersecçao = A & B
+print("A ∩ B =", intersecçao)
 
 diferençaAB = A - B
-print(diferençaAB) 
+print("A - B =", diferençaAB)
 
 diferençaBA = B - A
-print(diferençaBA)
+print("B - A =", diferençaBA)
 
-cardinalidadeA = 
+cardinalidadeA = len(A)
+cardinalidadeB = len(B)
+cardinalidade_uniao = len(A | B)
+cardinalidade_intersecçao = len(A & B)
+print("Cardinalidade de A:", cardinalidadeA)
+print("Cardinalidade de B:", cardinalidadeB)
+print("Cardinalidade de A ∪ B:", cardinalidade_uniao)
+print("Cardinalidade de A ∩ B:", cardinalidade_intersecçao)
