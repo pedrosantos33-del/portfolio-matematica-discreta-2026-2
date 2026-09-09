@@ -10,7 +10,7 @@ Disciplina: Estruturas Matemáticas para Computação
 
 Turno: Matutino
 
-
+================================================
 
 
 Atividade 1 – Teoria dos Conjuntos
@@ -34,6 +34,8 @@ Digite os elementos do conjunto A:
 Digite os elementos do conjunto B:
 3 4 5 6
 
+================================================
+
 
 O programa apresenta:
 
@@ -54,7 +56,7 @@ O programa apresenta:
 • inclusao.
 
 
-
+================================================
 
 
 Atividade 2 – Divisibilidade, MDC e MMC
