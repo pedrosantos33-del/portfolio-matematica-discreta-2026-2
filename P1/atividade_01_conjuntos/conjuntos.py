@@ -1,3 +1,10 @@
+print("================================")
+print("Nome: Pedro Henrique Vieira dos Santos")
+print("Matrícula: 2622130002")
+print("Disciplina: Estruturas Matemáticas para Computação")
+print("Turno: Matutino")
+print("================================")
+
 A = set(input("Digite os elementos do conjunto A: ").split()) 
 B = set(input("Digite os elementos do conjunto B: ").split())
 
@@ -39,4 +46,29 @@ partesB = gerar_partes(B)
 
 print("Conjunto das partes de A:", partesA)
 print("Conjunto das partes de B:", partesB)
-        
+
+cardinalidade_partesA = len(partesA)
+cardinalidade_partesB = len(partesB)
+
+print("Cardinalidade do conjunto das partes de A:", cardinalidade_partesA)
+print("Cardinalidade do conjunto das partes de B:", cardinalidade_partesB)
+
+
+elementosA = list(A)
+
+particaoA = []
+
+for i, elemento in enumerate(elementosA):
+    if i % 2 == 0:
+        particaoA.append(set())
+
+    particaoA[-1].add(elemento)
+
+print("Exemplo de partição de A:", particaoA)
+
+produto_cartesiano = {(a, b) for a in A for b in B}
+
+print("A × B =", produto_cartesiano)
+
+print("A está contido em B?", A <= B)
+print("B está contido em A?", B <= A)
