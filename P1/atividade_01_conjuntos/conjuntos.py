@@ -1,4 +1,7 @@
 print("================================")
+print("PORTFÓLIO DE PROGRAMAÇÃO MATEMÁTICA")
+print("Disciplina: Estruturas Matemáticas para Computação")
+print("Atividade 1 - Teoria dos Conjuntos")
 print("Nome: Pedro Henrique Vieira dos Santos")
 print("Matrícula: 2622130002")
 print("Disciplina: Estruturas Matemáticas para Computação")
