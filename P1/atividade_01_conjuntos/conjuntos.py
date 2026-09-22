@@ -37,7 +37,9 @@ print("Cardinalidade de A ∩ B:", cardinalidade_intersecçao)
 
 #def gerar_partes(conjunto) é a função que gera o conjunto das partes de um conjunto dado. O conjunto das partes é o conjunto de todos os subconjuntos possíveis de um conjunto, incluindo o conjunto vazio e o próprio conjunto.
 def gerar_partes(conjunto):
-    #frozenset() é um tipo de conjunto imutável em Python, que não pode ser modificado após a sua criação. Ele é usado aqui para representar o conjunto vazio e {} garante que esta dentro de um conjunto, pois o conjunto das partes é um conjunto de conjuntos.
+    # frozenset() representa o conjunto vazio de forma imutável.
+# Ele é usado porque um set comum não pode ser colocado dentro de outro set.
+# Assim, {frozenset()} representa um conjunto que contém o conjunto vazio.
     partes = {frozenset()}
 
 #for elemento in conjunto: é um loop que percorre cada elemento do conjunto dado. Para cada elemento, ele cria novos subconjuntos adicionando o elemento atual a cada subconjunto existente no conjunto das partes.
@@ -54,12 +56,28 @@ def gerar_partes(conjunto):
 #return partes finaliza a função retornando o conjunto das partes gerado.
     return partes
 
+def mostrar_partes(partes):
+    # Ordena pelo tamanho do subconjunto
+    partes_ordenadas = sorted(
+        partes,
+        key=lambda subset: (len(subset), sorted(subset))
+    )
+
+    for subset in partes_ordenadas:
+        if not subset:
+            print("∅")
+        else:
+            elementos = ", ".join(sorted(subset))
+            print("{" + elementos + "}")
+
 # Gerar o conjunto das partes de A e B usando a função gerar_partes
 partesA = gerar_partes(A)
 partesB = gerar_partes(B)
 
-print("Conjunto das partes de A:", partesA)
-print("Conjunto das partes de B:", partesB)
+print("Conjunto das partes de A:" )
+mostrar_partes(partesA)
+print("Conjunto das partes de B:" )
+mostrar_partes(partesB)
 
 cardinalidade_partesA = len(partesA)
 cardinalidade_partesB = len(partesB)
@@ -72,7 +90,8 @@ elementosA = list(A)
 
 particaoA = []
 
-# O loop for percorre cada elemento da lista elementosA usando a função enumerate(), que fornece tanto o índice (i) quanto o valor do elemento. A cada iteração, ele verifica se o índice é par (i % 2 == 0). Se for, cria um novo conjunto vazio e o adiciona à lista particaoA. Em seguida, adiciona o elemento atual ao último conjunto da lista particaoA. Isso resulta em uma partição de A em subconjuntos com base na posição dos elementos.
+# Divide os elementos de A em grupos de até 2 elementos.
+# Os grupos formados são subconjuntos disjuntos cuja união corresponde ao conjunto A, formando uma partição de A.
 for i, elemento in enumerate(elementosA):
     if i % 2 == 0:
         particaoA.append(set())
