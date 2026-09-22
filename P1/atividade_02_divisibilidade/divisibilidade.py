@@ -8,6 +8,7 @@ print("Turno: Matutino")
 print("================================")
 
 # O código abaixo solicita ao usuário que digite dois números inteiros A e B. int(input()) é usado para converter a entrada do usuário em um número inteiro.
+A= int(input("Digite um numero inteiro A: "))
 B= int(input("Digite um numero inteiro B: "))
 
 #operações de divisibilidade
