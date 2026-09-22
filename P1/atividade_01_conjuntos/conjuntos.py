@@ -8,9 +8,11 @@ print("Disciplina: Estruturas Matemáticas para Computação")
 print("Turno: Matutino")
 print("================================")
 
+# set é a variavel que representa o conjunto A, input() é a função que recebe a entrada do usuário, split() divide a string em uma lista de elementos separados por espaço e set() converte a lista em um conjunto.
 A = set(input("Digite os elementos do conjunto A: ").split()) 
 B = set(input("Digite os elementos do conjunto B: ").split())
 
+# Operações de conjuntos
 uniao = A | B
 print("A ∪ B =", uniao)
 
@@ -23,6 +25,7 @@ print("A - B =", diferençaAB)
 diferençaBA = B - A
 print("B - A =", diferençaBA)
 
+#len() é a função que retorna o número de elementos de um conjunto.
 cardinalidadeA = len(A)
 cardinalidadeB = len(B)
 cardinalidade_uniao = len(A | B)
@@ -32,18 +35,26 @@ print("Cardinalidade de B:", cardinalidadeB)
 print("Cardinalidade de A ∪ B:", cardinalidade_uniao)
 print("Cardinalidade de A ∩ B:", cardinalidade_intersecçao)
 
+#def gerar_partes(conjunto) é a função que gera o conjunto das partes de um conjunto dado. O conjunto das partes é o conjunto de todos os subconjuntos possíveis de um conjunto, incluindo o conjunto vazio e o próprio conjunto.
 def gerar_partes(conjunto):
+    #frozenset() é um tipo de conjunto imutável em Python, que não pode ser modificado após a sua criação. Ele é usado aqui para representar o conjunto vazio e {} garante que esta dentro de um conjunto, pois o conjunto das partes é um conjunto de conjuntos.
     partes = {frozenset()}
 
+#for elemento in conjunto: é um loop que percorre cada elemento do conjunto dado. Para cada elemento, ele cria novos subconjuntos adicionando o elemento atual a cada subconjunto existente no conjunto das partes.
+#nova_partes = set() cria um novo conjunto vazio para armazenar os novos subconjuntos gerados ao adicionar o elemento atual.
+#for subset in partes: percorre cada subconjunto existente no conjunto das partes. Para cada subconjunto, ele cria um novo subconjunto que é a união do subconjunto atual com o elemento atual.
+#nova_partes.add(subset | {elemento}) adiciona o novo subconjunto gerado ao conjunto nova_partes.
+#partes |= nova_partes atualiza o conjunto das partes com os novos subconjuntos gerados, garantindo que todos os subconjuntos possíveis sejam incluídos.
     for elemento in conjunto:
         nova_partes = set()
         for subset in partes:
             nova_partes.add(subset | {elemento})
         partes |= nova_partes
 
+#return partes finaliza a função retornando o conjunto das partes gerado.
     return partes
 
-
+# Gerar o conjunto das partes de A e B usando a função gerar_partes
 partesA = gerar_partes(A)
 partesB = gerar_partes(B)
 
@@ -56,11 +67,12 @@ cardinalidade_partesB = len(partesB)
 print("Cardinalidade do conjunto das partes de A:", cardinalidade_partesA)
 print("Cardinalidade do conjunto das partes de B:", cardinalidade_partesB)
 
-
+# organizar os elementos de A em uma lista para poder particionar
 elementosA = list(A)
 
 particaoA = []
 
+# O loop for percorre cada elemento da lista elementosA usando a função enumerate(), que fornece tanto o índice (i) quanto o valor do elemento. A cada iteração, ele verifica se o índice é par (i % 2 == 0). Se for, cria um novo conjunto vazio e o adiciona à lista particaoA. Em seguida, adiciona o elemento atual ao último conjunto da lista particaoA. Isso resulta em uma partição de A em subconjuntos com base na posição dos elementos.
 for i, elemento in enumerate(elementosA):
     if i % 2 == 0:
         particaoA.append(set())
@@ -69,6 +81,7 @@ for i, elemento in enumerate(elementosA):
 
 print("Exemplo de partição de A:", particaoA)
 
+#para cada elemento em A, ele cria um par ordenado (a, b) para cada elemento em B usando uma compreensão de conjunto. O resultado é o produto cartesiano de A e B, que é armazenado na variável produto_cartesiano.
 produto_cartesiano = {(a, b) for a in A for b in B}
 
 print("A × B =", produto_cartesiano)
