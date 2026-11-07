@@ -1,6 +1,4 @@
 
-
-
 def calcular_mdc(a, b):
     print(f"\n--- Calculo do MDC({a}, {b}) ---")
 
@@ -166,4 +164,3 @@ else:
             print("Congruencia satisfeita.")
         else:
             print("Erro na verificacao da congruencia.")
-
